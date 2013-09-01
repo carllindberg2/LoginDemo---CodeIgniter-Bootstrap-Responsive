@@ -1,7 +1,7 @@
 DemoLogin
 ============
 
-DemoLogin is a Swedish-translated small login app. Nothing fancy really. 
+DemoLogin is a small login app in Swedish. Nothing fancy really. 
 
 See it in action: "Soon to be published"
 
@@ -12,4 +12,4 @@ Usage
 
 Using YourContacts requires the following steps.
 
-* Please just click around. Pretty selfe evident currently. 
+* Please just click around. Pretty self evident currently. 
