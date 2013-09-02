@@ -48,10 +48,23 @@
 $active_group = 'default';
 $active_record = TRUE;
 
-$db['default']['hostname'] = 'localhost';
-$db['default']['username'] = 'root';
-$db['default']['password'] = '';
-$db['default']['database'] = 'logindemo_db';
+/* if the Environment Variables $_SERVER["DB1_HOST"] is set we assume we're on 
+| for example the PaaS Pagodabox and therefore set up the DB-variables accordingly.
+*/
+
+if(isset($_SERVER["DB1_HOST"] )) {
+	$db['default']['hostname'] = $_SERVER["DB1_HOST"];
+	$db['default']['username'] = $_SERVER["DB1_USER"] ;
+	$db['default']['password'] = $_SERVER["DB1_PASS"];
+	$db['default']['database'] = $_SERVER["DB1_NAME"];	
+	// $_SERVER["DB1_PORT"] = "3306";
+} else {
+	$db['default']['hostname'] = 'localhost';
+	$db['default']['username'] = 'root';
+	$db['default']['password'] = '';
+	$db['default']['database'] = 'logindemo_db';
+}
+
 $db['default']['dbdriver'] = 'mysql';
 $db['default']['dbprefix'] = '';
 $db['default']['pconnect'] = TRUE;
