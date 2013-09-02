@@ -40,7 +40,7 @@ class Login extends CI_Controller
                 redirect('site');
             } else {
 				$outcome = 0;
-				$this->loginattempts_log_model->add($this->input->post('email'), date("Y-m-d H:i:s"), $_SERVER['REMOTE_HOST'], $outcome);
+				$this->loginattempts_log_model->add($this->input->post('email'), date("Y-m-d H:i:s"), $_SERVER['REMOTE_ADDR'], $outcome);
                 redirect('login/error');
             }
 
