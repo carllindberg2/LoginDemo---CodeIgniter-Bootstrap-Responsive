@@ -30,7 +30,9 @@ if(1){
 	// Path to the system folder
 	define('BASEPATH', str_replace("\\", "/", $system_path));
 }
-$path_to_config = $_SERVER['DOCUMENT_ROOT']."/logindemo/application/config/database.php"; 
+//$path_to_config = $_SERVER['DOCUMENT_ROOT']."/logindemo/application/config/database.php"; 
+$path_to_config = "../logindemo/application/config/database.php"; 
+
 include($path_to_config);
 
 
