@@ -218,7 +218,7 @@ $sql_query = split_sql_file($sql_query, ';');
 $dblink = new mysqli($db['default']['hostname'], $db['default']['username'], $db['default']['password'], $db['default']['database']);
 */
 
-echo "This file simply installs some tables from the file logindemo_db.sql with mysql-commands (note not mysqli) into an existing database configured via the file " . $path_to_config . "<br /><br />*******************<br />"; 
+echo "This file simply installs some tables to the mysql database. Config is hardcoded. "  . "<br /><br />*******************<br />"; 
 /*
 $host = $db['default']['hostname'];
 $user = $db['default']['username'];
