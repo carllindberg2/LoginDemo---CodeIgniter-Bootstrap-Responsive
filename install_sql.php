@@ -30,15 +30,13 @@ if(1){
 	// Path to the system folder
 	define('BASEPATH', str_replace("\\", "/", $system_path));
 }
-
+/*
 $path_to_config = "../logindemo/application/config/database.php"; 
 
 //$path_to_config = $_SERVER['DOCUMENT_ROOT']."/logindemo/application/config/database.php"; 
 include($path_to_config);
 
-include($path_to_config);
-
-
+*/
 
 
 ini_set('memory_limit', '5120M');
@@ -221,12 +219,16 @@ $dblink = new mysqli($db['default']['hostname'], $db['default']['username'], $db
 */
 
 echo "This file simply installs some tables from the file logindemo_db.sql with mysql-commands (note not mysqli) into an existing database configured via the file " . $path_to_config . "<br /><br />*******************<br />"; 
-
+/*
 $host = $db['default']['hostname'];
 $user = $db['default']['username'];
 $pass = $db['default']['password'];
 $db = $db['default']['database'];
-
+*/
+$host = "localhost";
+$user = "root";
+$pass = "";
+$db = "logindemo_db";
 
 mysql_connect($host,$user,$pass) or die('error connection');
 mysql_select_db($db) or die('error database selection');
@@ -244,7 +246,7 @@ mysql_query($sql) or die('Error in query ' . mysql_error());
 $fileContent = file_get_contents($dbms_schema);
 
 echo "*******************<br />";
-echo "<pre>" . $fileContent . "</pre>";
+// echo "<pre>" . $fileContent . "</pre>";
 
 
 ?>
