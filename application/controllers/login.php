@@ -40,24 +40,13 @@ class Login extends CI_Controller
                 redirect('site');
             } else {
 				$outcome = 0;
-				$this->loginattempts_log_model->add($this->input->post('email'), date("Y-m-d H:i:s"), getIP(), $outcome);
+				$this->loginattempts_log_model->add($this->input->post('email'), date("Y-m-d H:i:s"),getIP(), $outcome);
                 redirect('login/error');
             }
 
         }
     }
-	
-    public function getIP() { 
-		if (getenv("HTTP_CLIENT_IP")) 
-			$ip = getenv("HTTP_CLIENT_IP"); 
-		else if(getenv("HTTP_X_FORWARDED_FOR")) 
-			$ip = getenv("HTTP_X_FORWARDED_FOR"); 
-		else if(getenv("REMOTE_ADDR")) 
-			$ip = getenv("REMOTE_ADDR"); 
-		else 
-			$ip = "UNKNOWN";
-		return $ip; 
-	}
+
 	
     public function error()
     {
@@ -81,5 +70,16 @@ class Login extends CI_Controller
     }
 }
 
-
+	
+    function getIP() { 
+		if (getenv("HTTP_CLIENT_IP")) 
+			$ip = getenv("HTTP_CLIENT_IP"); 
+		else if(getenv("HTTP_X_FORWARDED_FOR")) 
+			$ip = getenv("HTTP_X_FORWARDED_FOR"); 
+		else if(getenv("REMOTE_ADDR")) 
+			$ip = getenv("REMOTE_ADDR"); 
+		else 
+			$ip = "UNKNOWN";
+		return $ip; 
+	}
 /*End of file login.php*/
