@@ -29,9 +29,13 @@ if(1){
 
 	// Path to the system folder
 	define('BASEPATH', str_replace("\\", "/", $system_path));
+
+	// Path to the front controller (this file)
+	define('FCPATH', str_replace(SELF, '', __FILE__));
 }
 //$path_to_config = $_SERVER['DOCUMENT_ROOT']."/logindemo/application/config/database.php"; 
-$path_to_config = "../logindemo/application/config/database.php"; 
+
+$path_to_config = FCPATH."application/config/database.php"; 
 
 include($path_to_config);
 
