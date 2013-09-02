@@ -1,4 +1,12 @@
-<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+<?php
+if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+
+/*
+echo "<pre>";
+print_r($_SERVER);
+echo "</pre>";
+
+*/
 
 class Site extends CI_Controller 
 {
@@ -18,6 +26,7 @@ class Site extends CI_Controller
         $this->load->view('loginattempts_log', array(
             'loginattempts_log' => $loginattempts_log, 
         ));
+		//print_r($_SERVER);
     }
     
 
