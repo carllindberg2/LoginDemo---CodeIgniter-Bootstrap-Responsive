@@ -30,12 +30,7 @@ if(1){
 	// Path to the system folder
 	define('BASEPATH', str_replace("\\", "/", $system_path));
 }
-
-$path_to_config = "../logindemo/application/config/database.php"; 
-
-//$path_to_config = $_SERVER['DOCUMENT_ROOT']."/logindemo/application/config/database.php"; 
-include($path_to_config);
-
+$path_to_config = $_SERVER['DOCUMENT_ROOT']."/logindemo/application/config/database.php"; 
 include($path_to_config);
 
 
@@ -216,27 +211,17 @@ $sql_query = split_sql_file($sql_query, ';');
 
 
 //dblink
-/*
 $dblink = new mysqli($db['default']['hostname'], $db['default']['username'], $db['default']['password'], $db['default']['database']);
-*/
-
-echo "This file simply installs some tables from the file logindemo_db.sql with mysql-commands (note not mysqli) into an existing database configured via the file " . $path_to_config . "<br /><br />*******************<br />"; 
-
-$host = $db['default']['hostname'];
-$user = $db['default']['username'];
-$pass = $db['default']['password'];
-$db = $db['default']['database'];
 
 
-mysql_connect($host,$user,$pass) or die('error connection');
-mysql_select_db($db) or die('error database selection');
+echo "This file simply installs some tables from the file logindemo_db.sql into an existing database configured via the file " . $path_to_config . "<br /><br />*******************<br />"; 
 
 $i=1;
 foreach($sql_query as $sql){
 echo $i++;
 echo "
 ";
-mysql_query($sql) or die('Error in query ' . mysql_error());
+mysqli_query($dblink, $sql) or die('error in query ' . mysqli_error($dblink));
 }
 
 
