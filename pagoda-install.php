@@ -175,11 +175,14 @@ $sql_query = remove_remarks($sql_query);
 $sql_query = split_sql_file($sql_query, ';');
 
 
+define('SELF', pathinfo(__FILE__, PATHINFO_BASENAME));
+define('FCPATH', str_replace(SELF, '', __FILE__));
+require_once( FCPATH . "application/config/database.php" );
 
-$host = $_SERVER["DB1_HOST"];
-$user = $_SERVER["DB1_USER"] ;
-$pass = $_SERVER["DB1_PASS"];
-$db = $_SERVER["DB1_NAME"];
+$host = $db['default']['hostname'];
+$user = $db['default']['username'];
+$pass = $db['default']['password'];
+$db = $db['default']['database'];
 
 mysql_connect($host,$user,$pass) or die('error connection');
 mysql_select_db($db) or die('error database selection');

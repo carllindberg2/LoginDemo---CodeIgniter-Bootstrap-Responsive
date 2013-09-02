@@ -2,6 +2,7 @@
 <?php $this->load->view('includes/navbar'); ?>
 <div class="container">
 <div class="content" style="display: none">
+  <br />
   <div class="page-header">
     <h2>Change Your Password</h2>
   </div>
